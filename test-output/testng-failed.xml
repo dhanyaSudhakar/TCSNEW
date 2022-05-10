@@ -5,6 +5,10 @@
     <classes>
       <class name="com.tcsinternship.scripts.TestClass">
         <methods>
+          <include name="Customer_Front_End_ProfileAddress"/>
+          <include name="Login_Agent"/>
+          <include name="Login_Supplier"/>
+          <include name="Login_Agent_Link"/>
           <include name="onSetup"/>
           <include name="tearDown"/>
           <include name="Admin"/>

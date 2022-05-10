@@ -45,7 +45,7 @@ public class Profile {
 		} 
 	
 	
-	//Click on Email
+	//Click on Update Profile
 	public void clickUpdateProfile() throws InterruptedException{
 		Thread.sleep(2000);
 		updateProfile.click();

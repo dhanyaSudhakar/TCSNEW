@@ -22,9 +22,6 @@ public class Login {
 	@FindBy(xpath="//*[@id=\"fadein\"]/div/div/div[3]/ul/li[5]/a")
 	private WebElement logout;
 	
-	
-	
-
 public Login(WebDriver driver){
     this.driver = driver;
     //This initElements method will create all WebElements
@@ -47,7 +44,7 @@ public String matchEmail(){
 }
 
 
-//Inputting data on Email
+//Inputting data on Password
 public void clickPassword(String StrPassword) throws InterruptedException{
 	Thread.sleep(2000);
 	password.clear();

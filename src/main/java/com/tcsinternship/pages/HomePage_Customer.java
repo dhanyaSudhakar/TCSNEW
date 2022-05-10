@@ -20,17 +20,15 @@ public class HomePage_Customer {
 	@FindBy(id="gateway_paypal")
 	private WebElement paypalRadio;
 	
-	
 	@FindBy(xpath="/html/body/section[1]/div/div[2]/div/div[1]/div/div/div[2]/form/div/div[2]/div/button")
 	private WebElement payNow;
-	
 	
 	@FindBy(xpath="/html/body/div/div[1]/div[1]")
 	private WebElement paypalNewWindow;
 	
 	
-//	@FindBy(xpath="/html/body/div/div")
-//	private WebElement payPalButton;
+	@FindBy(xpath="//label[contains(text(),'USD')]")
+	private WebElement radioUSD;
 	
 	
 	@FindBy(xpath="/html[1]/body[1]")
@@ -42,11 +40,8 @@ public class HomePage_Customer {
 	@FindBy(id="country")
 	private WebElement country;
 	
-	
 	@FindBy(xpath="//*[@id=\"country\"]/option[162]")
 	private WebElement countryOption;
-	
-	
 	
 	@FindBy(id="cardNumber")
 	private WebElement cardNumber;
@@ -54,14 +49,11 @@ public class HomePage_Customer {
 	@FindBy(xpath="//input[@id='cardExpiry']")
 	private WebElement cardExpiry;
 	
-	
 	@FindBy(xpath="//input[@id='cardCvv']")
 	private WebElement cardCvv;
 	
-	
 	@FindBy(xpath="//label[contains(text(),'USD')]")
 	private WebElement USD;
-	
 	
 	@FindBy(xpath="//input[@id='firstName']")
 	private WebElement firstName;
@@ -80,7 +72,6 @@ public class HomePage_Customer {
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/div[1]/form[1]/fieldset[1]/div[5]/input[1]")
 	private WebElement state;
-	
 	
 	@FindBy(xpath="//input[@id='billingPostalCode']")
 	private WebElement postalcode;
@@ -103,23 +94,14 @@ public class HomePage_Customer {
 	@FindBy(xpath="//body/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]")
 	private WebElement MyProfilecust;
 	
-	
 	@FindBy(xpath="//button[contains(text(),'Pay in USD')]")
 	private WebElement payUSDButton;
-	
-	
 	
 	@FindBy(xpath="//*[@id=\"fadein\"]/div[1]/div/div[3]/ul/li[4]/a")
 	private WebElement MyProfile;
 	
-	
 	@FindBy(xpath="//*[@id=\"fadein\"]/div[1]/div/div[3]/ul/li[5]/a")
 	private WebElement Logout;
-	
-	
-	
-	
-	
 	
 	@FindBy(xpath="//*[@id=\"fadein\"]/header/div[2]/div/div/div/div/div[2]/nav/ul/li[3]/a")
 	private WebElement  Flight;
@@ -186,95 +168,75 @@ public class HomePage_Customer {
 	@FindBy(id="booking")
 	private WebElement  confBooking;
 	
+	@FindBy(xpath="//*[@id=\"form\"]")
+	private WebElement  Proceed;
 	
 	
 	@FindBy(xpath="//*[@id=\"fadein\"]/section[1]/div/div[2]/div/div[1]/div/div/div[2]/div/table/tbody/tr/td[4]/div/a")
 	private WebElement  viewVoucher;
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 	public HomePage_Customer(WebDriver driver){
 	    this.driver = driver;
 	    //This initElements method will create all WebElements
 	    PageFactory.initElements(driver, this);
 	}
 
-
 	//Click on Email
 	public void setMyBookings() throws InterruptedException{
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		myBookings.click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	} 
 	//Click on AddFunds
-		public void setAddFunds() throws InterruptedException{
+	public void setAddFunds() throws InterruptedException{
 			Thread.sleep(2000);
 			AddFunds.click();
 			Thread.sleep(2000);
 			
 		} 
-		public void payPal() throws InterruptedException{
+	public void payPal() throws InterruptedException{
 			paypalRadio.click();
 			Thread.sleep(2000);
 			payNow.click();
 			Thread.sleep(12000);
 			System.out.println("paypal");
-
 	}
 		
-		
-		public void getpayPalBUtton() throws InterruptedException{
+	public void getpayPalBUtton() throws InterruptedException{
 			payPalButton.click();
 			Thread.sleep(9000);
 		} 
 		
-		
-		public void getpayPalCardDEtails() throws InterruptedException{
+	public void getpayPalCardDEtails() throws InterruptedException{
 		payCard.click();
 		Thread.sleep(2000);
 		}
 		
-		public void carddetailsform() throws InterruptedException{
+	public void carddetailsform() throws InterruptedException{
 			country.click();
 			Thread.sleep(2000);
 			countryOption.click();
 			Thread.sleep(4000);
-			
 			}
 		
-		
-		
-		
-
-			//Click on Email
-			public void setCardnumber(String StrCardnumber) throws InterruptedException{
-				Thread.sleep(2000);
+	//Click on Email
+	public void setCardnumber(String StrCardnumber) throws InterruptedException{
+				Thread.sleep(3000);
 				cardNumber.clear();
 				cardNumber.sendKeys(StrCardnumber);
 				Thread.sleep(4000);
 			} 
 			
-			//assertion - to get the text from Cardnumber textbox
-			public String matchCardnumber(){
+	//assertion - to get the text from Cardnumber textbox
+	public String matchCardnumber(){
 				String GetcardNumber = cardNumber.getAttribute("value");
 				return GetcardNumber;
 			}
 			
-			
-			public void setcardExpiry(String StrcardExpiry) throws InterruptedException{
+	//Click on Card Expiry Date getting data from excel
+	public void setcardExpiry(String StrcardExpiry) throws InterruptedException{
 				Thread.sleep(4000);
 				cardExpiry.click();
 				Thread.sleep(1000);
@@ -282,37 +244,30 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			//assertion - to get the text from cardExpiry textbox
-			public String matchcardExpiry(){
+	//assertion - to get the text from cardExpiry textbox
+	public String matchcardExpiry(){
 				String GetcardExpiry = cardExpiry.getAttribute("value");
 				return GetcardExpiry;
 			}
 			
-		
-			public void setcardCvv(String StrcardCvv) throws InterruptedException{
+	//Click on Card cvv  getting data from excel
+	public void setcardCvv(String StrcardCvv) throws InterruptedException{
 				Thread.sleep(2000);
 				cardCvv.click();
 				Thread.sleep(1000);
 				cardCvv.sendKeys(StrcardCvv);
 				Thread.sleep(2000);
-				
 				USD.click();
 				Thread.sleep(1000);
 			} 
 			
-			
-			
-			
-			
-			//assertion - to get the text from cardcvv textbox
-			public String matchcardCvv(){
+	//assertion - to get the text from cardcvv textbox
+	public String matchcardCvv(){
 				String GetcardCvv = cardCvv.getAttribute("value");
 				return GetcardCvv;
 			}
-			
-			
-			
-			public void setfirstName(String StrfirstName) throws InterruptedException{
+	//Click on First Name & getting data from excel		
+	public void setfirstName(String StrfirstName) throws InterruptedException{
 				Thread.sleep(2000);
 				firstName.click();
 				Thread.sleep(1000);
@@ -320,15 +275,13 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
-			
-			//assertion - to get the text from firstName textbox
-			public String matchfirstName(){
+	//assertion - to get the text from firstName textbox
+	public String matchfirstName(){
 				String GetfirstName = firstName.getAttribute("value");
 				return GetfirstName;
 			}
-	
-			public void setlastName(String StrlastName) throws InterruptedException{
+	//Click on last Name & getting data from excel	
+	public void setlastName(String StrlastName) throws InterruptedException{
 				Thread.sleep(2000);
 				lastName.click();
 				Thread.sleep(1000);
@@ -336,14 +289,14 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			//assertion - to get the text from lastName textbox
-			public String matchlastName(){
+	//assertion - to get the text from lastName textbox
+	public String matchlastName(){
 				String GetlastName = lastName.getAttribute("value");
 				return GetlastName;
 			}
 			
-			
-			public void setbillingLine1(String StrbillingLine1) throws InterruptedException{
+	//Click on address & getting data from excel	
+	public void setbillingLine1(String StrbillingLine1) throws InterruptedException{
 				Thread.sleep(2000);
 				billingLine1.click();
 				Thread.sleep(1000);
@@ -351,14 +304,14 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			//assertion - to get the text from matchladdrrss1 textbox
-			public String matchlbillingLine1(){
+	//assertion - to get the text from matchladdrrss1 textbox
+	public String matchlbillingLine1(){
 				String GetbillingLine1 = billingLine1.getAttribute("value");
 				return GetbillingLine1;
 			}
 			
-			
-			public void setStrbillingLine2(String StrbillingLine2) throws InterruptedException{
+	//Click on address line 2 & getting data from excel	
+	public void setStrbillingLine2(String StrbillingLine2) throws InterruptedException{
 				Thread.sleep(2000);
 				billingLine2.click();
 				Thread.sleep(1000);
@@ -367,13 +320,14 @@ public class HomePage_Customer {
 			} 
 			
 			
-			//assertion - to get the text from matchladdrrss1 textbox
-			public String matchlbillingLine2(){
+	//assertion - to get the text from matchladdrrss2 textbox
+public String matchlbillingLine2(){
 				String GetbillingLine2 = billingLine2.getAttribute("value");
 				return GetbillingLine2;
 			}
 			
-			public void setStrbillingCity(String StrbillingCity) throws InterruptedException{
+//Click on billing city data from excel	
+public void setStrbillingCity(String StrbillingCity) throws InterruptedException{
 				Thread.sleep(2000);
 				billingCity.click();
 				Thread.sleep(1000);
@@ -381,13 +335,14 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
-			public String matchlbillingCity(){
+//assertion - to get the text from city textbox	
+public String matchlbillingCity(){
 				String GetbillingCity = billingCity.getAttribute("value");
 				return GetbillingCity;
 			}
 			
-			public void setStrstate(String Strstate) throws InterruptedException{
+//Click on billing state data from excel
+public void setStrstate(String Strstate) throws InterruptedException{
 				Thread.sleep(2000);
 				state.click();
 				Thread.sleep(1000);
@@ -395,15 +350,15 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
-			public String matchstate(){
+//assertion - to get the text from city textbox		
+public String matchstate(){
 				String Getstate = state.getAttribute("value");
 				return Getstate;
 			}
 			
 			
-			
-			public void setpostalcode(String Strpostalcode) throws InterruptedException{
+//Click on postal code data from excel		
+public void setpostalcode(String Strpostalcode) throws InterruptedException{
 				Thread.sleep(2000);
 				postalcode.click();
 				Thread.sleep(1000);
@@ -411,15 +366,15 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
-			public String matchpostalcode(){
+//assertion - to get the text from postal textbox				
+public String matchpostalcode(){
 				String Getpostalcode = postalcode.getAttribute("value");
 				return Getpostalcode;
 			}
 			
 			
-			
-			public void setphoneNumber(String StrphoneNumber) throws InterruptedException{
+//Click on phone number data from excel	
+public void setphoneNumber(String StrphoneNumber) throws InterruptedException{
 				Thread.sleep(2000);
 				phoneNumber.click();
 				Thread.sleep(1000);
@@ -427,13 +382,13 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
+//assertion - to get the text from phone number textbox
 			public String matchphoneNumber(){
 				String GetphoneNumber = phoneNumber.getAttribute("value");
 				return GetphoneNumber;
 			}
 			
-			
+			//Click on gmail data from excel
 			public void setgmail(String Strgmail) throws InterruptedException{
 				Thread.sleep(2000);
 				gmail.click();
@@ -442,13 +397,13 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
+			//assertion - to get the text from gmail textbox	
 			public String matchgmail(){
 				String Getgmail = gmail.getAttribute("value");
 				return Getgmail;
 			}
 			
-			
+			//Click on password data from excel
 			public void setpaypassword(String Strpaypassword) throws InterruptedException{
 				Thread.sleep(2000);
 				paypassword.click();
@@ -457,14 +412,14 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
+			//assertion - to get the text from password textbox
 			public String matchpaypassword(){
 				String Getpaypassword = paypassword.getAttribute("value");
 				return Getpaypassword;
 			}
 			
 			
-			
+			//Click on date of birth data from excel
 			public void setDoB() throws InterruptedException{
 				Thread.sleep(2000);
 				DoB.click();
@@ -473,12 +428,13 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			} 
 			
-			
+			//assertion - to get the text from date of birth textbox
 			public String matchDoB(){
 				String GetDoB = DoB.getAttribute("value");
 				return GetDoB;
 			}
 			
+			//Click on check box
 			public void checkbox() throws InterruptedException{
 				check.click();
 				Thread.sleep(2000);
@@ -486,19 +442,7 @@ public class HomePage_Customer {
 				Thread.sleep(2000);
 			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	
-		//Click on MyProfile
+//Click on MyProfile
 				public void setMyProfile() throws InterruptedException{
 					Thread.sleep(2000);
 					MyProfile.click();
@@ -519,10 +463,6 @@ public class HomePage_Customer {
 					js.executeScript("window.scrollBy(0,150)", "");
 					}	
 				
-				
-				
-				
-			
 				//Click on Logout
 				public void Logout() throws InterruptedException{
 					Thread.sleep(2000);
@@ -531,21 +471,15 @@ public class HomePage_Customer {
 				} 
 				
 			
-				
-				
-				
-				//click on Flight link
-				
+	//click on Flight link
 				public void setFlight() throws InterruptedException{
 					Thread.sleep(2000);
 					Flight.click();
 					Thread.sleep(2000);
 				} 
 				
-				
-				
-				
-				public void setFlyfrom(String StrFlyfrom) throws InterruptedException{
+				//Click on Flightfrom
+	public void setFlyfrom(String StrFlyfrom) throws InterruptedException{
 					Thread.sleep(2000);
 					Flyfrom.click();
 					Thread.sleep(1000);
@@ -554,8 +488,8 @@ public class HomePage_Customer {
 					Flyfromsingapore.click();
 					Thread.sleep(2000);
 				}
-				
-				public void setFlyto(String StrFlyto) throws InterruptedException{
+	//Click on Flightto		
+	public void setFlyto(String StrFlyto) throws InterruptedException{
 					Thread.sleep(2000);
 					Flyto.click();
 					Thread.sleep(1000);
@@ -566,16 +500,16 @@ public class HomePage_Customer {
 				}
 				
 				
-				//Click on Email
-					public void setFlightSearch() throws InterruptedException{
+		//Click on FlightSearch
+		public void setFlightSearch() throws InterruptedException{
 						Thread.sleep(2000);
 						FlightSearch.click();
 						
 						Thread.sleep(2000);
 					} 
 				
-					
-					public void clickUSDPayment() throws InterruptedException{
+		//Click on USDPayment
+		public void clickUSDPayment() throws InterruptedException{
 						Thread.sleep(2000);
 						USDPayment.click();
 						
@@ -583,8 +517,8 @@ public class HomePage_Customer {
 					} 
 				
 					
-					
-					public void setAdultFirstName(String StrAdultFirstName) throws InterruptedException{
+		//Click on Adult first name	and getting data from excel	 	
+		public void setAdultFirstName(String StrAdultFirstName) throws InterruptedException{
 						Thread.sleep(2000);
 						AdultFirstName.click();
 						Thread.sleep(1000);
@@ -592,8 +526,9 @@ public class HomePage_Customer {
 						Thread.sleep(1000);
 						
 					}
-					
-					public void setAdultLastName(String StrAdultLastName) throws InterruptedException{
+		
+		//Click on Adult last name	and getting data from excel	
+		public void setAdultLastName(String StrAdultLastName) throws InterruptedException{
 						Thread.sleep(2000);
 						AdultLastName.click();
 						Thread.sleep(1000);
@@ -602,7 +537,7 @@ public class HomePage_Customer {
 						
 					}
 					
-					
+		//Click on Adult Nationality 
 					public void setAdultNationality() throws InterruptedException{
 						Thread.sleep(2000);
 						AdultNationality.click();
@@ -612,8 +547,8 @@ public class HomePage_Customer {
 						
 					}
 					
-					
-					public void setAdultdob() throws InterruptedException{
+	//Click on Adult Date of Birth 
+	public void setAdultdob() throws InterruptedException{
 						Thread.sleep(2000);
 						Adultdob.click();
 						Thread.sleep(1000);
@@ -623,10 +558,8 @@ public class HomePage_Customer {
 					}
 					
 					
-					
-					
-					
-					public void setAdultPassport(String StrAdultPassport) throws InterruptedException{
+		//Click on Adult Passport and getting data from excel
+		public void setAdultPassport(String StrAdultPassport) throws InterruptedException{
 						Thread.sleep(2000);
 						AdultPassport.click();
 						Thread.sleep(1000);
@@ -635,7 +568,8 @@ public class HomePage_Customer {
 						
 					}
 					
-					public void setAdultPassportdate() throws InterruptedException{
+		//Click on Adult Passport date
+		public void setAdultPassportdate() throws InterruptedException{
 						Thread.sleep(2000);
 						AdultPassportdate.click();
 						Thread.sleep(1000);
@@ -647,33 +581,38 @@ public class HomePage_Customer {
 						Thread.sleep(1000);
 						
 					}
-					
+		
+		//Click on Adult Paypal
 					public void setAdultPaypal() throws InterruptedException{
 						Thread.sleep(2000);
 						Adultpaypal.click();
 						Thread.sleep(1000);
 					}
 					
-					public void setAdultdeclrtn() throws InterruptedException{
+		//Click on Adult declaration
+		public void setAdultdeclrtn() throws InterruptedException{
 						declartn.click();
 						Thread.sleep(1000);
 						confBooking.click();
+						Thread.sleep(2000);
+						
+		}
+		
+		//Click on Proceed button
+				public void Proceed() throws InterruptedException{
+						Proceed.click();
 						Thread.sleep(1000);
 					}
 					
-					
-					
-				
-				//Click on Email
+		//Click on view voucher button
 				public void setviewVoucher() throws InterruptedException{
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 					viewVoucher.click();
-					
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 				} 
 				
-				
-				  public boolean ButtonAssertion()throws InterruptedException{
+		//Assertion for Button view voucher is Enabled		
+	   public boolean ButtonAssertion()throws InterruptedException{
 				  	Thread.sleep(4000);
 				  	return viewVoucher.isEnabled(); 
 				  	

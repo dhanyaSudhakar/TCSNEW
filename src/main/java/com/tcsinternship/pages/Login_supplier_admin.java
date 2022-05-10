@@ -26,15 +26,10 @@ public class Login_supplier_admin {
 	@FindBy(xpath="//a[contains(text(),'Website')]")
 	private WebElement websiteLink;
 	
-	
-	
-	
 	@FindBy(xpath="//*[@id=\"fadein\"]/div/div/div[3]/ul/li[5]/a")
 	private WebElement logout;
 	
 	
-	
-
 public Login_supplier_admin(WebDriver driver){
     this.driver = driver;
     //This initElements method will create all WebElements
@@ -57,7 +52,7 @@ public String matchEmail(){
 }
 
 
-//Inputting data on Email
+//Inputting data on Password
 public void clickPassword(String StrPassword) throws InterruptedException{
 	Thread.sleep(2000);
 	password.clear();
@@ -79,7 +74,7 @@ public void clicklogin() throws InterruptedException{
 } 
 
 
-//Click on SignIn Button
+//Click on Booking
 public void clickbookingLink() throws InterruptedException{
 	driver.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
 	bookingLink.click();
@@ -88,7 +83,7 @@ public void clickbookingLink() throws InterruptedException{
 
 
 
-//Click on SignIn Button
+//Click on Website
 public void clickwebsiteLink() throws InterruptedException{
 	driver.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
 	websiteLink.click();
@@ -96,7 +91,7 @@ public void clickwebsiteLink() throws InterruptedException{
 } 
 
 
-//Click on SignIn Button
+//Click on logout
 public void clicklogout() throws InterruptedException{
 	driver.manage().timeouts().implicitlyWait(3, TimeUnit.MINUTES);
 	logout.click();

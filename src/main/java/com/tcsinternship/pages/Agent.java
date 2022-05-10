@@ -29,8 +29,6 @@ public class Agent {
 	@FindBy(xpath="//*[@id=\"fadein\"]/header/div[2]/div/div/div/div/div[2]/nav/ul/li[7]/a")
 	private WebElement Offers;
 	
-	
-	               
 	@FindBy(xpath="/html/body/section[1]/section/div/div/form/div/div/div[1]/div/div/div/span/span[1]/span")
 	private WebElement City;
 	
@@ -56,11 +54,7 @@ public class Agent {
 	@FindBy(xpath="/html/body/header/div[1]/div/div/div[2]/div/div/div[3]/div/ul/li[5]/a")
 	private WebElement Logout;
 	
-	
-	
-	
-
-	public Agent(WebDriver driver){
+public Agent(WebDriver driver){
 	    this.driver = driver;
 	    //This initElements method will create all WebElements
 	    PageFactory.initElements(driver, this);
@@ -114,14 +108,14 @@ public class Agent {
 		} 
 		
 		//Click on Offers
-				public void setOffers() throws InterruptedException{
+		public void setOffers() throws InterruptedException{
 					Thread.sleep(2000);
 					Offers.click();
 					Thread.sleep(2000);
 				} 
 				
-			//click search - city
-				public void setCity() throws InterruptedException{
+		//click search - city
+		public void setCity() throws InterruptedException{
 					Thread.sleep(2000);
 					City.click();
 					Thread.sleep(2000);
@@ -134,8 +128,8 @@ public class Agent {
 				} 
 				
 				
-				//click search - city
-				public void setcurrency() throws InterruptedException{
+		//click search - city
+		public void setcurrency() throws InterruptedException{
 					Thread.sleep(2000);
 					currency.click();
 					Thread.sleep(2000);
@@ -145,8 +139,8 @@ public class Agent {
 				} 
 				
 				
-				//click search - city
-				public void Logout() throws InterruptedException{
+		//click search - city
+		public void Logout() throws InterruptedException{
 					Thread.sleep(2000);
 					account.click();
 					Thread.sleep(2000);
